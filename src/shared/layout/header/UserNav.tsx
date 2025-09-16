@@ -2,7 +2,7 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/components/core/ui/avatar";
+} from "@/shared/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,13 +10,14 @@ import {
   DropdownMenuLabel,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from "@/components/core/ui/dropdown-menu";
-import { josa } from "es-hangul";
+} from "@/shared/ui/dropdown-menu";
 import React from "react";
+import HeaderSearchbar from "./searchbar";
 
 export function UserNav() {
   return (
-    <div className="flex gap-5">
+    <div className="flex gap-5 items-center">
+      <HeaderSearchbar />
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <div className="cursor-pointer flex gap-3 items-center">

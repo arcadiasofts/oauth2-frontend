@@ -1,6 +1,8 @@
-import SecurityManager from "@/components/tools/home/security-manager";
-import SubscriptionManager from "@/components/tools/home/subscription";
-import Image from "next/image";
+import ProfileManager from "@/features/profile/components/ProfileManager";
+import HomeSearchbar from "@/features/search/components/searchbar";
+import SecurityManager from "@/features/security/components/security-manager";
+import SubscriptionManager from "@/features/subscription/components/subscription";
+
 
 export default function Home() {
   return (
@@ -21,7 +23,11 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="flex mt-10 gap-4 px-30">
+      <HomeSearchbar />
+      <div className="mt-10 lg:px-30">
+        <ProfileManager />
+      </div>
+      <div className="flex mt-4 gap-4 lg:px-30">
         <SecurityManager />
         <SubscriptionManager />
       </div>

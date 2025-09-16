@@ -2,7 +2,7 @@ import React from "react";
 import { FloatingThemeChanger } from "./header/FloatingThemeChanger";
 import { HeaderBrand } from "./header/HeaderBrand";
 import { UserNav } from "./header/UserNav";
-import ColorProvider from "../core/util/color-provider";
+import ColorProvider from "@/shared/providers/color-provider";
 
 export default function Header() {
   return (

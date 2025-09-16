@@ -1,4 +1,4 @@
-import Logo from "@/components/core/brand/logo";
+import Logo from "@/shared/brand/logo";
 
 export default function LoginHeader() {
   return (

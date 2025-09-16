@@ -1,14 +1,16 @@
-"use client";
-import Logo from "@/components/core/brand/logo";
-import ColorProvider from "@/components/core/util/color-provider";
-import { ThemeChanger } from "@/components/core/ui/theme-changer";
+import { Suspense } from "react";
+import Logo from "@/shared/brand/logo";
+import ColorProvider from "@/shared/providers/color-provider";
 import Link from "next/link";
-import { buttonVariants } from "@/components/core/ui/button";
+import { buttonVariants } from "@/shared/ui/button";
+import { BackButton } from "@/shared/ui/BackButton";
 
 export default function NotFoundPage() {
   return (
     <main className="flex flex-col items-center justify-center w-screen h-screen gap-4">
-      <ColorProvider />
+      <Suspense fallback={null}>
+        <ColorProvider />
+      </Suspense>
       <Link
         href={"https://arcadiasofts.com/"}
         className="flex items-center gap-2"
@@ -25,16 +27,7 @@ export default function NotFoundPage() {
         <Link href={"/"} className={buttonVariants()}>
           메인 페이지
         </Link>
-        <Link
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            window.history.back();
-          }}
-          className={buttonVariants({ variant: "outline" })}
-        >
-          이전 페이지로 돌아가기
-        </Link>
+        <BackButton />
       </div>
     </main>
   );

@@ -1,5 +1,5 @@
-import { Button } from "@/components/core/ui/button";
-import { Input } from "@/components/core/ui/input";
+import { Button } from "@/shared/ui/button";
+import { Input } from "@/shared/ui/input";
 import Link from "next/link";
 
 export default function LoginForm() {

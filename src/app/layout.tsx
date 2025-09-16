@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 import "@/styles/globals.css";
-import { ThemeProvider } from "@/components/core/ui/theme-provider";
+import { ThemeProvider } from "@/shared/ui/theme-provider";
 
 const pretendard = localFont({
   variable: "--pretendard",
