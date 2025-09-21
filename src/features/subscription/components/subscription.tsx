@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import card from "$/asset/wallet.svg";
+import { TransitionLink } from "@/shared/ui/transition";
 
 export default function SubscriptionManager() {
   return (

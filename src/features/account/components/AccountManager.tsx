@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import palette from "$/asset/paint.svg";
+import { TransitionLink } from "@/shared/ui/transition";
 
 export default function ProfileManager() {
   return (
@@ -24,7 +25,7 @@ export default function ProfileManager() {
         </div>
       </div>
       <div className="w-full h-[1px] bg-border my-4"></div>
-      <Link href={"/purchase"} className="text-primary font-bold">
+      <Link href={"/account"} className="text-primary font-bold">
         더 알아보기
       </Link>
     </div>

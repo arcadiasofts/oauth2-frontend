@@ -23,6 +23,8 @@ export default function ColorProvider() {
       }
     };
 
+    if(!theme) return;
+
     if (resolvedTheme === "light" || resolvedTheme === "dark") {
       applyTheme(resolvedTheme);
     }

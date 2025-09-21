@@ -1,6 +1,6 @@
 "use client";
 import { Kbd, KbdKey } from "@/shared/ui/kibo-ui/kbd";
-import { useSearchBar } from "@/features/search/store";
+import { useSearchBar } from "@/features/search/search-store";
 
 export default function HeaderSearchbar() {
   const { setIsOpen } = useSearchBar();

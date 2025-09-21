@@ -1,8 +1,13 @@
-import ProfileManager from "@/features/profile/components/ProfileManager";
+import ProfileManager from "@/features/account/components/AccountManager";
 import HomeSearchbar from "@/features/search/components/searchbar";
 import SecurityManager from "@/features/security/components/security-manager";
 import SubscriptionManager from "@/features/subscription/components/subscription";
+import { Metadata } from "next";
+import Image from "next/image";
 
+export const metadata: Metadata = {
+  title: "메인 - 아르카디아 계정 관리",
+};
 
 export default function Home() {
   return (
@@ -14,6 +19,9 @@ export default function Home() {
             src={
               "https://k.kakaocdn.net/dn/dcdixK/btsMAHGSopq/tei7YS5Qa1VpD5U2eNiRb1/img_640x640.jpg"
             }
+            alt="User profile image"
+            width={128}
+            height={128}
           />
           <div className="flex flex-col gap-2 items-center">
             <h2 className="font-bold text-3xl">

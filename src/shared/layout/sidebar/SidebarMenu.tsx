@@ -25,8 +25,8 @@ const sidebarItems: { title: string; href: string; icon: React.ReactNode }[] = [
     ),
   },
   {
-    title: "프로필",
-    href: "/profile",
+    title: "계정",
+    href: "/account",
     icon: (
       <svg
         id="sidebar-home"
@@ -45,24 +45,18 @@ const sidebarItems: { title: string; href: string; icon: React.ReactNode }[] = [
     ),
   },
   {
-    title: "개인정보",
-    href: "/privacy",
+    title: "보안",
+    href: "/security",
     icon: (
       <svg
         id="sidebar-home"
         data-name="sidebar-item"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 617.9 699.97"
-        className="fill-none stroke-[80px] size-4"
-        style={{ strokeLinecap: "round", strokeLinejoin: "round" }}
+        viewBox="0 0 547.89 643.57"
+        className="fill-foreground size-4 opacity-40"
       >
-        <g opacity={0.4}>
-          <circle cx="435.08" cy="182.82" r="142.82" />
-          <line x1="339.87" y1="289.28" x2="40" y2="589.15" />
-          <line x1="173.02" y1="659.97" x2="88.83" y2="575.77" />
-          <line x1="159.71" y1="504.9" x2="214.07" y2="559.26" />
-          <line x1="232.31" y1="434.02" x2="318.78" y2="520.49" />
-        </g>
+        <path d="M507.79,273.15H40.1c-22.05,0-40.1,18.04-40.1,40.1v290.23c0,22.05,18.04,40.1,40.1,40.1h467.69c22.05,0,40.1-18.04,40.1-40.1v-290.23c0-22.05-18.04-40.1-40.1-40.1ZM297.79,459.39l10,94.7c.76,7.18-4.87,13.44-12.1,13.44h-43.49c-7.23,0-12.86-6.27-12.1-13.46l10.11-94.62s-.02-.07-.05-.09c-15.07-8.23-25.4-24.05-25.86-42.32-.75-29.47,23.76-52.87,53.16-50.8,25.77,1.81,46.11,23.29,46.11,49.52,0,18.76-10.4,35.08-25.75,43.52-.03.02-.05.05-.05.09Z" />
+        <path d="M273.94,0h0C160.11,0,67.83,92.28,67.83,206.11v95.83h52.83v-92.97c0-81.56,66.11-159.34,147.67-159.34h11.22c81.56,0,147.67,77.78,147.67,159.34v92.97h52.83v-95.83C480.06,92.28,387.78,0,273.94,0Z" />
       </svg>
     ),
   },

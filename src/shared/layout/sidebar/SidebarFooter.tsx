@@ -8,12 +8,18 @@ const footerLinks = [
 
 export function SidebarFooter() {
   return (
-    <div className="absolute bottom-5 left-5 text-xs flex gap-3">
-      {footerLinks.map((link) => (
-        <Link key={link.title} href={link.href}>
-          {link.title}
-        </Link>
-      ))}
+    <div className="absolute bottom-5 left-5 text-xs flex flex-col gap-5">
+      <div className="flex gap-3">
+        {footerLinks.map((link) => (
+          <Link key={link.title} href={link.href}>
+            {link.title}
+          </Link>
+        ))}
+      </div>
+      <p>
+        Copyright © <Link href={"https://arcadiasofts.com/"}>Arcadiasofts</Link>{" "}
+        2025 - Current.
+      </p>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/shared/ui/theme-provider";
+import { TransitionProvider } from "@/shared/ui/transition";
 
 const pretendard = localFont({
   variable: "--pretendard",
@@ -21,7 +22,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <TransitionProvider>{children}</TransitionProvider>
         </ThemeProvider>
       </body>
     </html>
