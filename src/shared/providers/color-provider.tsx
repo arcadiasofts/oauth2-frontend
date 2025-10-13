@@ -23,7 +23,7 @@ export default function ColorProvider() {
       }
     };
 
-    if(!theme) return;
+    if (!theme) return;
 
     if (resolvedTheme === "light" || resolvedTheme === "dark") {
       applyTheme(resolvedTheme);
@@ -42,4 +42,14 @@ export default function ColorProvider() {
   }, [theme, resolvedTheme]);
 
   return <></>;
+}
+
+export function changeHrefWithColor(href: string) {
+  const base = new URL(window.location.href);
+  const theme = base.searchParams.get("theme");
+  if (theme) {
+    const url = new URL(window.location.origin + href);
+    url.searchParams.append("theme", theme);
+    window.location.href = url.toString();
+  }
 }

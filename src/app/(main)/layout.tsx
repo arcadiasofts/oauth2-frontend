@@ -2,6 +2,7 @@
 import SearchScreen from "@/features/search/components/search-screen";
 import Header from "@/shared/layout/header";
 import Sidebar from "@/shared/layout/sidebar";
+import { RequireLogin } from "@/shared/providers/user-provider";
 import { Suspense, useEffect, useState } from "react";
 
 export default function HomeLayout({
@@ -29,9 +30,8 @@ export default function HomeLayout({
 
   return (
     <div className="h-screen">
-      <Suspense fallback={null}>
-        <Header />
-      </Suspense>
+      <RequireLogin />
+      <Header />
       <SearchScreen />
       <div
         className="flex relative"

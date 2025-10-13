@@ -1,10 +1,11 @@
+"use client";
+import { useUserStore } from "@/store/auth/user.store";
+import palette from "$/asset/paint.svg";
 import Image from "next/image";
 import Link from "next/link";
 
-import palette from "$/asset/paint.svg";
-import { TransitionLink } from "@/shared/ui/transition";
-
 export default function ProfileManager() {
+  const { user } = useUserStore();
   return (
     <div className="border rounded-md w-full flex-1 p-4 h-full">
       <div className="flex justify-between">
@@ -13,7 +14,7 @@ export default function ProfileManager() {
           <p className="text-sm mt-4">
             아르카디아는 강력한 커스텀 프로필 설정을 지원합니다.
             <br />
-            규연님만의 개성을 프로필 설정을 통해 표현해 보세요.
+            {user.nickname}님만의 개성을 프로필 설정을 통해 표현해 보세요.
           </p>
         </div>
         <div className="bg-foreground/5 rounded-full flex items-center justify-center w-20 h-20 relative">

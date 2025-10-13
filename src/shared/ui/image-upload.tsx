@@ -1,4 +1,5 @@
 "use client";
+import { api } from "@/lib/api";
 import { useEffect, useState, useId } from "react";
 
 export default function ImageUploader({
@@ -8,7 +9,7 @@ export default function ImageUploader({
   style,
   defaultValue,
 }: {
-  onUpload?: (e: { imageURL: string; id: string }) => void;
+  onUpload?: (e: { key: string }) => void;
   className?: string;
   label?: string;
   style?: string;
@@ -17,19 +18,25 @@ export default function ImageUploader({
   const [img, setImg] = useState<string | undefined>(defaultValue);
   const [isLoading, setLoading] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  const [error, setError] = useState("");
   const componentId = useId();
 
   const handleUpload = async (file: File) => {
     setLoading(true);
-
-    // TODO: 여기에 이미지 업로드 로직을 구현하세요.
-    // 아래 코드는 업로드 로직이 구현되기 전까지 임시로 이미지를 보여주는 부분입니다.
-    const tempUrl = URL.createObjectURL(file);
-    setImg(tempUrl);
-
+    console.log(file);
+    const formData = new FormData();
+    formData.append("files", file);
+    let key = "";
+    try {
+      const res = await api.post("/img/upload?for=profile", formData);
+      key = res.data.files[0].key;
+      setImg(URL.createObjectURL(file));
+    } catch (e: any) {
+      setError(e.response.data.error);
+    }
     // onUpload 콜백이 있다면 임시 URL과 함께 호출합니다.
     if (onUpload) {
-      onUpload({ imageURL: tempUrl, id: "temp-id" });
+      onUpload({ key });
     }
 
     // 실제 업로드 과정을 시뮬레이션하기 위해 약간의 딜레이를 줍니다.
@@ -39,7 +46,7 @@ export default function ImageUploader({
   };
 
   const handleCancel = async () => {
-    if (onUpload) onUpload({ imageURL: "", id: "" });
+    if (onUpload) onUpload({ key: "" });
     setImg(undefined);
   };
 
@@ -117,11 +124,11 @@ export default function ImageUploader({
       </button>
       {img ? (
         <div
-          className={`bg-black/50 w-full h-full absolute top-0 left-0 flex justify-center items-center cursor-pointer${
+          className={`bg-black/70 w-full h-full absolute top-0 left-0 flex justify-center items-center cursor-pointer${
             img ? " group-hover:bg-black/0" : ""
           } transition-colors duration-500 ease-in-out`}
         >
-          <div className="p-3 text-xs rounded-full text-center px-5 bg-red-500 text-white group-hover:opacity-0 transition-opacity duration-500 ease-in-out">
+          <div className="p-3 text-xs rounded-full text-center px-5 text-white group-hover:opacity-0 transition-opacity duration-500 ease-in-out">
             <p>
               업로드 대기 중인 이미지입니다.
               <br />
@@ -134,7 +141,7 @@ export default function ImageUploader({
       )}
       {isLoading ? (
         <div
-          className={`py-5 bg-black/50 w-full h-full absolute top-0 left-0 flex justify-center items-center cursor-pointer${
+          className={`py-5 bg-black/70 w-full h-full absolute top-0 left-0 flex justify-center items-center cursor-pointer${
             img ? " group-hover:bg-black/0" : ""
           } transition-colors duration-500 ease-in-out`}
         >

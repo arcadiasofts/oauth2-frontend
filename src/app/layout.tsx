@@ -2,6 +2,10 @@ import localFont from "next/font/local";
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/shared/ui/theme-provider";
 import { TransitionProvider } from "@/shared/ui/transition";
+import { ProgressBar } from "@/shared/layout/progress-bar";
+import ColorProvider from "@/shared/providers/color-provider";
+import { Suspense } from "react";
+import UserProvider from "@/shared/providers/user-provider";
 
 const pretendard = localFont({
   variable: "--pretendard",
@@ -22,7 +26,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <TransitionProvider>{children}</TransitionProvider>
+          <TransitionProvider>
+            <ProgressBar />
+            <ColorProvider />
+            <UserProvider />
+            {children}
+          </TransitionProvider>
         </ThemeProvider>
       </body>
     </html>

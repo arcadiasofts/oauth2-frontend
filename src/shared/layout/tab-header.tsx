@@ -21,7 +21,6 @@ export default function TabHeader() {
   }, [altHeader, header]);
   return (
     <>
-      <ColorProvider />
       <FloatingThemeChanger />
       <header
         className="fixed bg-background top-0 w-full h-fit flex justify-center border-b-border border-b"
@@ -29,7 +28,7 @@ export default function TabHeader() {
         id="application-header"
       >
         <div className="p-6 flex items-center w-full justify-between max-w-[1200px]">
-          <div className="flex uppercase items-center font-light text-xl gap-8">
+          <div className="flex uppercase items-center font-semibold text-xl gap-8">
             {previous.startsWith(origin) ? (
               <TransitionLink
                 className="text-foreground/40"

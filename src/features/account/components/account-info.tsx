@@ -1,4 +1,5 @@
 import { Container, ContainerItem } from "@/shared/layout/item-containers";
+import { useUserStore } from "@/store/auth/user.store";
 
 export default function AccountInfo() {
   return (
@@ -7,6 +8,12 @@ export default function AccountInfo() {
         <div className="py-5 w-full flex justify-between items-center">
           <p className="font-bold">이름</p>
           <p className="font-light text-sm">이규연</p>
+        </div>
+      </ContainerItem>
+      <ContainerItem href="/profile/gender">
+        <div className="py-5 w-full border-t flex justify-between items-center">
+          <p className="font-bold">성별</p>
+          <p className="font-light text-sm">남성</p>
         </div>
       </ContainerItem>
       <ContainerItem href="/profile/nickname">

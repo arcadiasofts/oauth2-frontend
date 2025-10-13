@@ -7,7 +7,6 @@ import ColorProvider from "@/shared/providers/color-provider";
 export default function Header() {
   return (
     <>
-      <ColorProvider />
       <FloatingThemeChanger />
       <header
         className="p-6 flex items-center justify-between"

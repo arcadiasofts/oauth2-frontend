@@ -1,10 +1,9 @@
 import ProfileManager from "@/features/account/components/AccountManager";
+import MainTitle from "@/features/main/components/title";
 import HomeSearchbar from "@/features/search/components/searchbar";
 import SecurityManager from "@/features/security/components/security-manager";
 import SubscriptionManager from "@/features/subscription/components/subscription";
 import { Metadata } from "next";
-import Image from "next/image";
-
 export const metadata: Metadata = {
   title: "메인 - 아르카디아 계정 관리",
 };
@@ -12,25 +11,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="p-5">
-      <div className="flex flex-col">
-        <div className="flex flex-col items-center gap-5">
-          <img
-            className="w-32 h-32 object-cover rounded-full"
-            src={
-              "https://k.kakaocdn.net/dn/dcdixK/btsMAHGSopq/tei7YS5Qa1VpD5U2eNiRb1/img_640x640.jpg"
-            }
-            alt="User profile image"
-            width={128}
-            height={128}
-          />
-          <div className="flex flex-col gap-2 items-center">
-            <h2 className="font-bold text-3xl">
-              반가워요, <span className="text-primary">규연</span>님!
-            </h2>
-            <p>아르카디아와 연결된 계정의 정보를 손쉽게 관리해 보세요.</p>
-          </div>
-        </div>
-      </div>
+      <MainTitle />
       <HomeSearchbar />
       <div className="mt-10 lg:px-30">
         <ProfileManager />
