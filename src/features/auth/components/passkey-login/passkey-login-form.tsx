@@ -14,12 +14,14 @@ export default function PasskeyLoginForm() {
   const [email, setEmail] = useState("");
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const params = useSearchParams();
   const redirectTo = params.get("redirect_to");
   const handleSubmit = async () => {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    setLoading(true);
     if (!emailRegex.test(email)) {
       setError("올바른 이메일 형식이 아닙니다.");
+      setLoading(false);
       return;
     }
     try {
@@ -59,9 +61,16 @@ export default function PasskeyLoginForm() {
       window.location.href = "/";
     } catch (error: any) {
       if (error.response.data.message === errors.INVALID_USER) {
-        setError("올바른 이메일이 아닙니다.");
+        setError("사용자를 찾을 수 없습니다.");
+        setLoading(false);
         return;
       }
+      if (error.response.data.message === errors.INVALID_PASSKEY) {
+        setError("계정에 패스키가 등록되지 않았습니다.");
+        setLoading(false);
+        return;
+      }
+      setError(error.message);
     }
   };
   return (
@@ -88,7 +97,7 @@ export default function PasskeyLoginForm() {
         className="w-full mt-5 cursor-pointer"
         type="submit"
         onClick={handleSubmit}
-        disabled={isLoading}
+        disabled={isLoading || !emailRegex.test(email)}
       >
         패스키로 로그인
       </Button>

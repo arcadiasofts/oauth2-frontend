@@ -11,6 +11,9 @@ importers:
       '@fingerprintjs/fingerprintjs':
         specifier: ^4.6.2
         version: 4.6.2
+      '@portone/browser-sdk':
+        specifier: ^0.1.0
+        version: 0.1.0
       '@radix-ui/react-avatar':
         specifier: ^1.1.10
         version: 1.1.10(@types/react-dom@19.1.9(@types/react@19.1.13))(@types/react@19.1.13)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -410,6 +413,9 @@ packages:
   '@nolyfill/is-core-module@1.0.39':
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
+
+  '@portone/browser-sdk@0.1.0':
+    resolution: {integrity: sha512-4LO5XXqAohbXQbjHXjsJD8YCwNv/6RVkBXhWw+Icf5Hogx1RyRuVJ9Qfa4hr72j+oZCbUCBiaLpPUBVf+Weu1Q==}
 
   '@radix-ui/number@1.1.1':
     resolution: {integrity: sha512-MkKCwxlXTgz6CFoJx3pCwn07GKp36+aZyu/u2Ln2VrA5DcdyCZkASEDBTd8x5whTQQL5CiYf4prXKLcgQdv29g==}
@@ -2655,6 +2661,8 @@ snapshots:
       fastq: 1.19.1
 
   '@nolyfill/is-core-module@1.0.39': {}
+
+  '@portone/browser-sdk@0.1.0': {}
 
   '@radix-ui/number@1.1.1': {}
 

@@ -6,6 +6,7 @@ import RegisterFormNickname from "./register-form-nickname";
 import RegisterFormPassword from "./register-form-password";
 import RegisterFormExtra from "./register-form-extra";
 import RegisterFormComplete from "./register-form-complete";
+import RegisterFormIdentify from "./register-form-identify";
 
 export default function RegisterForm() {
   const [index, setIndex] = useState(0);
@@ -13,6 +14,7 @@ export default function RegisterForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");
+  const [identityVerificationId, setIdentityVerificationId] = useState("");
 
   const toNext = useCallback(() => {
     setIndex((prevIndex) => prevIndex + 1);
@@ -52,16 +54,24 @@ export default function RegisterForm() {
           />
         )}
         {index === 4 && (
+          <RegisterFormIdentify
+            setIdentityVerificationId={setIdentityVerificationId}
+            toNext={toNext}
+            toPrevious={toPrevious}
+          />
+        )}
+        {index === 5 && (
           <RegisterFormExtra
             email={email}
             handle={handle}
             nickname={nickname}
             password={password}
+            identityVerificationId={identityVerificationId}
             toPrevious={toPrevious}
             toNext={toNext}
           />
         )}
-        {index === 5 && <RegisterFormComplete nickname={nickname} />}
+        {index === 6 && <RegisterFormComplete nickname={nickname} />}
       </div>
       <a
         href="/login"

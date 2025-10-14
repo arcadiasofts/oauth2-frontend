@@ -21,9 +21,11 @@ function RegisterFormHandle({
 
   const handleSubmit = useCallback(async () => {
     setError("");
-    const regex = /^[a-zA-Z0-9._]+$/;
+    const regex = /^[a-zA-Z0-9._]{1,20}$/;
     if (!regex.test(handle)) {
-      setError("핸들은 영어 소문자 및 대문자, 숫자, _, .만 사용 가능합니다.");
+      setError(
+        "핸들은 영문, 숫자, _, .가 포함된 20자 미만의 문자열만 사용 가능합니다."
+      );
       return;
     }
     setLoading(true);

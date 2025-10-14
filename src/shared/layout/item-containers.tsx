@@ -7,7 +7,7 @@ export function Container({
   className,
   children,
 }: {
-  title: string;
+  title?: string;
   className?: string;
   children: React.ReactNode;
 }) {
@@ -17,9 +17,11 @@ export function Container({
         className ? " " + className : ""
       }`}
     >
-      <div className="font-bold pb-3 mx-6 mt-6">
-        <h2>{title}</h2>
-      </div>
+      {title && (
+        <div className="font-bold pb-3 mx-6 mt-6">
+          <h2>{title}</h2>
+        </div>
+      )}
       {children}
     </div>
   );

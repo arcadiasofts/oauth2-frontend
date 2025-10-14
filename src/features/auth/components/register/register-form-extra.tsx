@@ -20,6 +20,7 @@ type RegisterFormExtraProps = {
   handle: string;
   nickname: string;
   password: string;
+  identityVerificationId: string;
   toPrevious: () => void;
   toNext: () => void;
 };
@@ -29,6 +30,7 @@ function RegisterFormExtra({
   handle,
   nickname,
   password,
+  identityVerificationId,
   toPrevious,
   toNext,
 }: RegisterFormExtraProps) {
@@ -43,6 +45,7 @@ function RegisterFormExtra({
         nickname,
         email,
         password,
+        identity_verification_id: identityVerificationId,
       });
       if (!res.data.registered) {
         setError("회원가입 중 문제가 발생하였습니다.");
@@ -51,10 +54,23 @@ function RegisterFormExtra({
       setLoading(false);
       toNext();
     } catch (error: any) {
-      if (error.response.data.message === errors.INVALID_CERTIFICATION) {
+      const errorcode: any = error.response.data.message;
+      if (errorcode === errors.INVALID_CERTIFICATION) {
         setError(
           "이메일이 인증되지 않았습니다. 세로고침 후 다시 시도해주세요."
         );
+        setLoading(false);
+        return;
+      } else if (errorcode == errors.TOO_YOUNG) {
+        setError("14세 미만은 회원 가입이 불가능합니다.");
+        setLoading(false);
+        return;
+      } else if (errorcode == errors.TOO_YOUNG) {
+        setError("14세 미만은 회원 가입이 불가능합니다.");
+        setLoading(false);
+        return;
+      } else if (errorcode == errors.ALREADY_REGISTERED) {
+        setError("이미 해당 명의로 가입된 계정이 존재합니다.");
         setLoading(false);
         return;
       }
